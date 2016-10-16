@@ -1,13 +1,5 @@
 <?php
-
-/**
- * @file
- * Contains \Drupal\restful_search_api_example\Plugin\resource\basic_search\node\v1_0\BasicSearch.
- */
-
-namespace Drupal\restful_search_api_example\Plugin\resource\basic_search\node\v1_0;
-use Drupal\restful\Plugin\resource\ResourceInterface;
-use Drupal\restful_search_api\Plugin\Resource\ResourceSearchBase;
+namespace Drupal\restful_search_api;
 
 /**
  * Class BasicSearch

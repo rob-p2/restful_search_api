@@ -1,0 +1,35 @@
+<?php
+namespace Drupal\restful_search_api;
+
+class ResourceFieldSearchKey extends ResourceFieldKeyValue implements ResourceFieldSearchKeyInterface {
+
+  /**
+   * Separator to drill down on nested result objects for 'property'.
+   */
+  const NESTING_SEPARATOR = '::';
+
+  /**
+   * Overrides ResourceField::value().
+   */
+  public function value(DataInterpreterInterface $interpreter) {
+    $value = parent::value($interpreter);
+    $definition = $this->getDefinition();
+    if (!empty($definition['sub_property'])) {
+      $parts = explode(static::NESTING_SEPARATOR, $definition['sub_property']);
+      foreach ($parts as $part) {
+        $value = $value[$part];
+      }
+    }
+    return $value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(array $field, RequestInterface $request = NULL) {
+    $resource_field = new static($field, $request ?: restful()->getRequest());
+    $resource_field->addDefaults();
+    return $resource_field;
+  }
+
+}

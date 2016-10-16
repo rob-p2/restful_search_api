@@ -1,4 +1,5 @@
 <?php
+namespace Drupal\restful_search_api;
 
 /**
  * @file

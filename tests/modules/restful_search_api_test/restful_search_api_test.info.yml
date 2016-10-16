@@ -1,0 +1,8 @@
+name: 'RESTful Search API test module'
+description: 'Test module'
+dependencies:
+  - restful_search_api
+core: 8.x
+registry_autoload:
+  - PSR-4
+type: module

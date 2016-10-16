@@ -1,0 +1,9 @@
+name: 'RESTful Search API'
+description: 'Integration for RESTful of Search API.'
+dependencies:
+  - restful
+  - search_api
+core: 8.x
+registry_autoload:
+  - PSR-4
+type: module
